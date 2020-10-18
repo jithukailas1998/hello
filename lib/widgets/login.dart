@@ -21,6 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Login"),
+        backgroundColor: Colors.green,
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -50,6 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           obscureText: true,
                         ),
                         RaisedButton(
+                          color: Colors.green,
                           onPressed: () {
                             _submit(0);
                           },

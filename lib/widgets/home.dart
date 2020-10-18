@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.green,
            actions: <Widget>[
           
-          new IconButton(icon: Icon(Icons.notifications, color: Colors.white,),
+          new IconButton(icon: Icon(Icons.lock, color: Colors.white,),
               onPressed: () async{
                 
   SharedPreferences prefs = await SharedPreferences.getInstance();
