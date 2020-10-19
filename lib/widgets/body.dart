@@ -17,9 +17,9 @@ class UserBody extends StatelessWidget {
       child: BlocConsumer<UserBloc, UserState>(
         listener: (context, userState) {
           if (userState is UserLoadingState) {
-            ShimmerLoader();
-            // Scaffold.of(context)
-            //     .showSnackBar(SnackBar(content: Text(userState.message)));
+            //ShimmerLoader();
+            Scaffold.of(context)
+                .showSnackBar(SnackBar(content: Text(userState.message)));
           } else if (userState is UserSuccessState && userState.users.isEmpty) {
             Scaffold.of(context)
                 .showSnackBar(SnackBar(content: Text('No more users')));
@@ -31,10 +31,12 @@ class UserBody extends StatelessWidget {
           return;
         },
         builder: (context, userState) {
-          if (userState is UserInitialState ||
-              UserState is UserLoadingState && _users.isEmpty) {
+          if (userState is UserInitialState) {
+            return ShimmerLoader();
+          } else if( UserState is UserLoadingState && _users.isEmpty){
             return CircularProgressIndicator();
-          } else if (userState is UserSuccessState) {
+          }
+          else if (userState is UserSuccessState) {
             _users.addAll(userState.users);
             context.bloc<UserBloc>().isFetching = false;
             Scaffold.of(context).hideCurrentSnackBar();

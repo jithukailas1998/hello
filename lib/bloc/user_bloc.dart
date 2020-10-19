@@ -27,7 +27,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           yield UserSuccessState(
             users: users.map((user) => UserModel.fromJson(user)).toList(),
           );
-          page++;
+          //page++;
         } else {
           yield UserErrorState(error: response.body);
         }
