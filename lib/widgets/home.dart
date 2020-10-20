@@ -18,19 +18,20 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text('Users'),
           backgroundColor: Colors.green,
-           actions: <Widget>[
-          
-          new IconButton(icon: Icon(Icons.lock, color: Colors.white,),
-              onPressed: () async{
-                
-  SharedPreferences prefs = await SharedPreferences.getInstance();
+          actions: <Widget>[
+            new IconButton(
+              icon: Icon(
+                Icons.lock,
+                color: Colors.white,
+              ),
+              onPressed: () async {
+                SharedPreferences prefs = await SharedPreferences.getInstance();
                 prefs.remove('value');
                 Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => LoginScreen()));
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
               },
-              ),
-
-        ],
+            ),
+          ],
         ),
         body: UserBody(),
       ),

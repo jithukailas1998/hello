@@ -6,14 +6,9 @@ part "model.g.dart";
 @JsonSerializable()
 class UserModel {
   int userId;
-
   int id;
-
   String title;
-
   bool completed;
-
-  
 
   UserModel({
     @required this.userId,
